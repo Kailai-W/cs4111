@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stations Menu</title>
+    <style>
+        /* Unified styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f4f6f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container {
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 { font-size: 24px; color: #333; margin-bottom: 20px; }
+        .button-container {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        button {
+            padding: 15px; font-size: 18px; color: #ffffff;
+            background-color: #007BFF; border: none; border-radius: 8px;
+            cursor: pointer; transition: background-color 0.3s ease;
+        }
+        button:hover { background-color: #0056b3; }
+        .back-button {
+            display: inline-block; margin-top: 20px; padding: 10px 20px;
+            color: #ffffff; background-color: #007BFF; border: none; border-radius: 8px;
+            text-decoration: none; cursor: pointer; transition: background-color 0.3s ease;
+        }
+        .back-button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stations Menu</h1>
+        <div class="button-container">
+            <button onclick="location.href='/stations/view_all'">View All Stations</button>
+            <button onclick="location.href='/stations/ride_counts'">Ride Counts by Station</button>
+        </div>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
