@@ -194,7 +194,7 @@ def add_ride():
 
             # Insert into Has table
             g.conn.execute(text("""
-                INSERT INTO "Has" (Ride_id, User_id, Station_id_1, Station_id_2)
+                INSERT INTO Has (Ride_id, User_id, Station_id_1, Station_id_2)
                 VALUES (:ride_id, :user_id, :start_station_id, :end_station_id)
             """), {'ride_id': ride_id, 'user_id': user_id, 'start_station_id': start_station_id, 'end_station_id': end_station_id})
 
