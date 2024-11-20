@@ -165,7 +165,7 @@ def add_ride():
 
     try:
             g.conn.execute(text("""
-                INSERT INTO "Bikes_Belong_to" (Bike_id, Station_id, Bike_type)
+                INSERT INTO Bikes_Belong_to (Bike_id, Station_id, Bike_type)
                 VALUES (:bike_id, :station_id, :bike_type)
                 ON CONFLICT (Bike_id) DO NOTHING
             """), {
@@ -182,13 +182,13 @@ def add_ride():
             """), {'user_id': user_id, 'user_type': user_type})
 
             g.conn.execute(text("""
-                INSERT INTO "Ride_has" (Ride_id, Bike_id, Start_time, End_time, Comments)
+                INSERT INTO Ride_has (Ride_id, Bike_id, Start_time, End_time, Comments)
                 VALUES (:ride_id, :bike_id, :start_time, :end_time, :comments)
             """), {'ride_id': ride_id, 'bike_id': bike_id, 'start_time': start_time, 'end_time': end_time, 'comments': comments})
             
             # Insert ride and user association into Rides_Take
             g.conn.execute(text("""
-                INSERT INTO "Rides_Take" (Ride_id, Start_time, End_time, Comments, User_id)
+                INSERT INTO Rides_Take (Ride_id, Start_time, End_time, Comments, User_id)
                 VALUES (:ride_id, :start_time, :end_time, :comments, :user_id)
             """), {'ride_id': ride_id, 'start_time': start_time, 'end_time': end_time, 'comments': comments, 'user_id': user_id})
 
@@ -233,7 +233,7 @@ def report_issue():
     try:
         # Insert the issue into the Issues table
         g.conn.execute(text("""
-            INSERT INTO "Issues" (issue_id, c_issue_id, t_issue_id)
+            INSERT INTO Issues (issue_id, c_issue_id, t_issue_id)
             VALUES (:issue_id, :c_issue_id, :t_issue_id)
         """), {
             'issue_id': issue_id,
