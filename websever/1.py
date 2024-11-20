@@ -92,8 +92,7 @@ def rides():
         FROM Ride_has R
         JOIN Has H ON R.Ride_id = H.Ride_id
         JOIN Stations S1 ON H.Station_id_1 = S1.Station_id
-        LEFT JOIN Stations S2 ON H.Station_id_2 = S2.Station_id
-        WHERE R.Start_time >= '2024-08-01' AND R.End_time <= '2024-08-31';
+        LEFT JOIN Stations S2 ON H.Station_id_2 = S2.Station_id;
     """))
     rides = [dict(row) for row in cursor.mappings()] 
     cursor.close()
